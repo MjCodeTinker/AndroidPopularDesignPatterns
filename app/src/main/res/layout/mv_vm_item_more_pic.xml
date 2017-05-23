@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.mj.design_patterns.R"/>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="newsEntity"
+            type="com.mj.design_patterns.mv_vm.bean.NewsEntity"/>
+
+        <variable
+            name="handle"
+            type="com.mj.design_patterns.mv_vm.adapter.NewsListAdapter"/>
+
+        <variable
+            name="position"
+            type="int"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:layout_marginTop="10dip"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{newsEntity.content}"
+            android:textColor="@color/c3"
+            android:textSize="15sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dip"
+            android:layout_margin="10dip">
+
+            <ImageView
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dip"
+                android:layout_weight="1"
+                android:scaleType="centerCrop"
+                app:imageUrl="@{newsEntity.imageUrls[0]}"/>
+
+            <ImageView
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="centerCrop"
+                app:imageUrl="@{newsEntity.imageUrls[1]}"/>
+
+            <ImageView
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dip"
+                android:layout_weight="1"
+                android:scaleType="centerCrop"
+                android:visibility="@{newsEntity.getPicNum == 2 ? View.GONE : View.VISIBLE}"
+                app:imageUrl="@{newsEntity.imageUrls[2]}"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@{newsEntity.getDateSplicingPageNum}"
+                android:textColor="@color/c6"
+                android:textSize="12sp"/>
+
+            <!--android:src="@{newsEntity.isNice ? @drawable/nice_press :@drawable/nice_normal}"-->
+
+            <ImageView
+                android:layout_width="15dip"
+                android:layout_height="15dip"
+                android:onClick="@{()->handle.thumbUpClick(newsEntity,position)}"
+                app:resId="@{newsEntity.isNice ? R.mipmap.nice_press : R.mipmap.nice_normal}"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip"
+                android:text="@{String.valueOf(newsEntity.niceCount)}"
+                android:textColor="@{newsEntity.isNice ? @color/appColor : @color/c6}"
+                android:textSize="12sp"/>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/listBgC"/>
+    </LinearLayout>
+</layout>
+

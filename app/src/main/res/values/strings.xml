@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AndroidPopularDesignPatterns</string>
+    <string name="mvp_list">MvpList</string>
+    <string name="mv_vm_list">MvVmList</string>
+
+    <string name="listPageNumDisplay">%1$s--##第%2$d页数据</string>
+
+</resources>
