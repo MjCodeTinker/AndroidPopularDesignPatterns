@@ -1,7 +1,9 @@
 # AndroidPopularDesignPatterns
 android-mvp&amp;mvvm分别实现列表加载-demo
 
-![](http://upload-images.jianshu.io/upload_images/3093487-1880b7e9fd80ddb0.gif?imageMogr2/auto-orient/strip)
+![](https://github.com/MjCodeTinker/AndroidPopularDesignPatterns/blob/master/gif/mvp.gif?raw=true)
+
+![](https://github.com/MjCodeTinker/AndroidPopularDesignPatterns/blob/master/gif/mvvm.gif?raw=true)
 
 <a href="http://www.jianshu.com/p/f179d8352431">简书</a>
 
